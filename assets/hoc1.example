@@ -1,0 +1,5 @@
+const enhanceComponent = (...) => {
+
+}
+
+export default enhanceComponent

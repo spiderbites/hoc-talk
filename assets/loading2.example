@@ -1,0 +1,27 @@
+import withLoader from './HOC/withLoader'
+import Image from './components/image'
+
+class ImageList extends Component {
+  static propTypes = {
+    images: PropTypes.arrayOf(React.proptypes.string).isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    loadingTime: PropTypes.number
+  }
+
+  componentDidMount() {
+    this.props.fetchImages()
+  }
+
+  render() {
+    const { loadingTime, images } = this.props
+    return(
+      <div>
+        {images.map(img => <Image data={img} />)}
+        <p>Loading time {loadingTime} seconds</p>
+      </div>
+    )
+  }
+}
+
+
+export default withLoader('isFetching')(ImageList)

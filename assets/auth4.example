@@ -1,0 +1,16 @@
+const Routes = props => (
+  <Router history={history}>
+    <Route path='/' component={App}>
+      <Route path='/login' component={LoginContainer} />
+      <Route component={requiresAuth(LoggedInLayout)}>
+        <Route path='/jobs' component={Jobs} />
+        <Route path='/lists' component={Lists} />
+        <Route path='/settings' component={Settings} />
+      </Route>
+      <Route component={requiresAuth(LoggedInLayout, {userRoleRequired: 'host'})}>
+        <Route path='/catalogs' component={Catalogs} />
+      </Route>
+      <Route path='*' component={404} />
+    </Route>
+  </Router>
+)

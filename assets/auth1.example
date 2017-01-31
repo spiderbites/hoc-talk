@@ -1,0 +1,26 @@
+const requiresAuth = (WrappedComponent) => {
+  return class AuthenticatedComponent extends Component {
+
+    componentWillMount () {
+      this.authenticateUserOrRedirect(this.props)
+    }
+
+    componentWillUpdate (nextProps) {
+      this.authenticateUserOrRedirect(nextProps)
+    }
+
+    authenticateUserOrRedirect (props) {
+      if (!this.props.user) {
+        this.redirectToLogin()
+      }
+    }    
+
+    render () {
+      return this.props.user
+        ? <WrappedComponent {...this.props} />
+        : null
+    }
+  }
+}
+
+export default requiresAuth

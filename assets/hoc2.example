@@ -1,0 +1,5 @@
+const enhanceComponent = (WrappedComponent) => {
+
+}
+
+export default enhanceComponent

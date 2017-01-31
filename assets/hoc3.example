@@ -1,0 +1,7 @@
+const enhanceComponent = (WrappedComponent) => {
+  return class EnhancedComponent extends Component {
+    ...
+  }
+}
+
+export default enhanceComponent

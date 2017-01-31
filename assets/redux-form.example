@@ -1,0 +1,4 @@
+// redux form
+export default reduxForm({
+  form: 'login'
+})(LoginForm)

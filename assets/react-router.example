@@ -1,0 +1,2 @@
+// react router
+export default withRouter(ComponentThatCanPush)

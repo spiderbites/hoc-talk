@@ -1,0 +1,9 @@
+const enhanceComponent = (WrappedComponent) => {
+  return class EnhancedComponent extends Component {
+    render () {
+      return <WrappedComponent {...this.props} {...this.state} />
+    }
+  }
+}
+
+export default enhanceComponent

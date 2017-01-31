@@ -1,0 +1,25 @@
+const withLoader = (loadingProp) => (WrappedComponent) => {
+  return class LoadingHOC extends Component {
+    componentDidMount () {
+      this.startTimer = Date.now()
+    }
+
+    componentWillUpdate (nextProps) {
+      if (!nextProps[loadingProp]) {
+        this.endTimer = Date.now()
+      }
+    }
+
+    render () {
+      const newProps = {
+        loadingTime: ((this.endTimer - this.startTimer)/1000).toFixed(2),
+      }
+
+      return this.props[loadingProp] 
+        ? <Spinner /> 
+        : <WrappedComponent {...this.props} {...newProps}/>
+    }
+  }
+}
+
+export default withLoader

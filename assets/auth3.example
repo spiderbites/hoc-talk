@@ -1,0 +1,25 @@
+const requiresAuth = (WrappedComponent, {userRoleRequired} = {userRoleRequired: false}) => {
+  return class AuthenticatedComponent extends Component {
+
+    ...
+
+    authenticateUserOrRedirect (props) {
+      if (!this.props.user) {
+        this.redirectToLogin()
+      }
+    }
+
+    userPermitted () {
+      return !userRoleRequired || userRoleRequired === this.props.user.role
+    }
+
+    render () {
+      if (this.props.user) {
+        return this.userPermitted()
+          ? <WrappedComponent {...this.props} />
+          : <NotFound>
+        }
+      return null
+    }
+  }
+}
