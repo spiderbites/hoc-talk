@@ -23,9 +23,7 @@ const withLoader = timeoutLength => WrappedComponent => {
       }
 
       return this.state.loading ? (
-        <div>
-          <Spinner />
-        </div>
+        <Spinner />
       ) : (
         <WrappedComponent {...this.props} {...newProps} />
       )

@@ -1,6 +1,8 @@
 const enhance = (WrappedComponent) => {
   const EnhancedComponent = props => {
-    return <WrappedComponent {...props} />
+    // some code that adds some functionality
+    // (probably some props) goes here
+    return <WrappedComponent {...newProps} {...props} />
   }
 
   return EnhancedComponent

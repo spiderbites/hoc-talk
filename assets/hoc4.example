@@ -1,5 +1,8 @@
 const enhance = (WrappedComponent) => {
   return class EnhancedComponent extends Component {
+    // some code that adds some functionality
+    // goes here
+
     render () {
       return <WrappedComponent {...this.props} {...this.state} />
     }
