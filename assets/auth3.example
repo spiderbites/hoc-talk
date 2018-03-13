@@ -1,4 +1,4 @@
-const requiresAuth = (WrappedComponent, {userRoleRequired} = {userRoleRequired: false}) => {
+const requiresAuth = ({ userRoleRequired }) => WrappedComponent => {
   return class AuthenticatedComponent extends Component {
 
     ...
@@ -10,14 +10,14 @@ const requiresAuth = (WrappedComponent, {userRoleRequired} = {userRoleRequired: 
     }
 
     userPermitted () {
-      return !userRoleRequired || userRoleRequired === this.props.user.role
+      return isNil(userRoleRequired) || userRoleRequired === this.props.user.role
     }
 
     render () {
       if (this.props.user) {
         return this.userPermitted()
           ? <WrappedComponent {...this.props} />
-          : <NotFound>
+          : null
         }
       return null
     }

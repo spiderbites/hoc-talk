@@ -1,5 +1,5 @@
-const enhanceComponent = (...) => {
+const enhance = (...) => {
 
 }
 
-export default enhanceComponent
+export default enhance

@@ -1,11 +1,11 @@
 const requiresAuth = (WrappedComponent) => {
   return class AuthenticatedComponent extends Component {
 
-    componentWillMount () {
+    componentDidMount () {
       this.authenticateUserOrRedirect(this.props)
     }
 
-    componentWillUpdate (nextProps) {
+    componentDidUpdate (nextProps) {
       this.authenticateUserOrRedirect(nextProps)
     }
 
@@ -13,7 +13,7 @@ const requiresAuth = (WrappedComponent) => {
       if (!this.props.user) {
         this.redirectToLogin()
       }
-    }    
+    }
 
     render () {
       return this.props.user

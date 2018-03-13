@@ -1,3 +1,6 @@
+import React from 'react'
+import Spinner from './spinner'
+
 const withLoader = timeoutLength => WrappedComponent => {
   return class LoadingHOC extends React.Component {
     constructor(props) {
@@ -32,3 +35,9 @@ const withLoader = timeoutLength => WrappedComponent => {
     }
   }
 }
+
+const Spinny = ({ loadingTime }) => {
+  return <p>Loading time {loadingTime} seconds</p>
+}
+
+export default withLoader(1234)(Spinny)

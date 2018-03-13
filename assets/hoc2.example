@@ -1,5 +1,5 @@
-const enhanceComponent = (WrappedComponent) => {
+const enhance = (WrappedComponent) => {
 
 }
 
-export default enhanceComponent
+export default enhance
