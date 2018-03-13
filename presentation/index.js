@@ -76,7 +76,7 @@ export default class Presentation extends React.Component {
           <Slide transition={['fade']}>
             <BlockQuote>
               <Quote textColor="black" textSize={54}>
-                More generally, this is React's version of the{' '}
+                You might say this is React's version of the{' '}
                 <Code>Decorator</Code> pattern.
               </Quote>
             </BlockQuote>
@@ -169,7 +169,7 @@ export default class Presentation extends React.Component {
             notes="- then in our routes we wrap the requiresAuth HoC around our logged in layout"
           >
             <Heading size={6} lineHeight={3} textColor="white">
-              Auth example - routes
+              Auth example - Usage
             </Heading>
             <CodePane
               lang="jsx"
@@ -207,7 +207,7 @@ export default class Presentation extends React.Component {
             <li>- but i like the HoC pattern because it's very clear that requiresAuth is some behaviour that we can clearly associate with certain components"
           >
             <Heading size={6} lineHeight={3} textColor="white">
-              Auth example - routes with user roles
+              Auth example - Usage with user roles
             </Heading>
             <CodePane
               lang="jsx"
